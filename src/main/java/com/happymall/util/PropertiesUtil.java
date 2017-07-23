@@ -9,41 +9,39 @@ import java.io.InputStreamReader;
 import java.util.Properties;
 
 /**
- * Created by geely
+ * Created by onegx
  */
 public class PropertiesUtil {
 
-    private static Logger logger = LoggerFactory.getLogger(PropertiesUtil.class);
+   private static Logger logger = LoggerFactory.getLogger(PropertiesUtil.class);
 
-    private static Properties props;
+    private static Properties pros;
 
-    static {
-        String fileName = "mmall.properties";
-        props = new Properties();
+    static{
+        String filename = "mmall.properties";
+        pros = new Properties();
         try {
-            props.load(new InputStreamReader(PropertiesUtil.class.getClassLoader().getResourceAsStream(fileName),"UTF-8"));
+            pros.load(new InputStreamReader(PropertiesUtil.class.getClassLoader().getResourceAsStream(filename)));
         } catch (IOException e) {
-            logger.error("配置文件读取异常",e);
+            logger.error("参数错误",e);
         }
     }
 
     public static String getProperty(String key){
-        String value = props.getProperty(key.trim());
-        if(StringUtils.isBlank(value)){
+        String value = pros.getProperty(key);
+        if(value == null){
             return null;
         }
         return value.trim();
     }
 
-    public static String getProperty(String key,String defaultValue){
-
-        String value = props.getProperty(key.trim());
-        if(StringUtils.isBlank(value)){
-            value = defaultValue;
+    public static String getProperty(String key,String dafeultValue){
+        String value = pros.getProperty(key);
+        if(value == null){
+            value = dafeultValue;
         }
         return value.trim();
     }
-
 
 
 }

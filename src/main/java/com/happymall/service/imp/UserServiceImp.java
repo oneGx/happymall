@@ -180,4 +180,19 @@ public class UserServiceImp implements IUserService {
         return ServerResponse.createBySuccess(currentUser);
     }
 
+    //backend
+
+    /**
+     * 校验是否是管理员
+     * @param user
+     * @return
+     */
+    @Override
+    public ServerResponse checkAdminRole(User user){
+        if(user != null && user.getRole().intValue() == Const.Role.Role_Admin){
+            return ServerResponse.createBySuccess();
+        }
+        return ServerResponse.createByError();
+    }
+
 }

@@ -8,7 +8,7 @@ import org.joda.time.format.DateTimeFormatter;
 import java.util.Date;
 
 /**
- * Created by geely
+ * Created by onegx
  */
 public class DateTimeUtil {
 
@@ -26,12 +26,12 @@ public class DateTimeUtil {
         return dateTime.toDate();
     }
 
-    public static String dateToStr(Date date,String formatStr){
+    public static String dateToStr(Date date ,String formateStr){
         if(date == null){
             return StringUtils.EMPTY;
         }
         DateTime dateTime = new DateTime(date);
-        return dateTime.toString(formatStr);
+        return dateTime.toString(formateStr);
     }
 
     public static Date strToDate(String dateTimeStr){
@@ -40,7 +40,7 @@ public class DateTimeUtil {
         return dateTime.toDate();
     }
 
-    public static String dateToStr(Date date){
+    public static String dateToStr(Date date ){
         if(date == null){
             return StringUtils.EMPTY;
         }
@@ -48,14 +48,6 @@ public class DateTimeUtil {
         return dateTime.toString(STANDARD_FORMAT);
     }
 
-
-
-
-    public static void main(String[] args) {
-        System.out.println(DateTimeUtil.dateToStr(new Date(),"yyyy-MM-dd HH:mm:ss"));
-        System.out.println(DateTimeUtil.strToDate("2010-01-01 11:11:11","yyyy-MM-dd HH:mm:ss"));
-
-    }
 
 
 }
