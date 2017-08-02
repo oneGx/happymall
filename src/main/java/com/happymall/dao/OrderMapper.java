@@ -1,6 +1,10 @@
 package com.happymall.dao;
 
 import com.happymall.pojo.Order;
+import com.sun.org.apache.xpath.internal.operations.Or;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface OrderMapper {
     int deleteByPrimaryKey(Integer id);
@@ -14,4 +18,12 @@ public interface OrderMapper {
     int updateByPrimaryKeySelective(Order record);
 
     int updateByPrimaryKey(Order record);
+
+    Order selectByUserIdAndOrderNo(@Param("userId") Integer userId, @Param("orderNo")Long orderNo);
+
+    Order selectByOrderNo(Long orderNo);
+
+    List<Order> selectByUserId(Integer userId);
+
+    List<Order> selectAllOrder();
 }

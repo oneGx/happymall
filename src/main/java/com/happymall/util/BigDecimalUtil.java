@@ -25,7 +25,7 @@ public class BigDecimalUtil {
     }
 
 
-    public static BigDecimal mul(double v1,double v2){
+    public static BigDecimal mul(double v1, double v2){
         BigDecimal b1 = new BigDecimal(Double.toString(v1));
         BigDecimal b2 = new BigDecimal(Double.toString(v2));
         return b1.multiply(b2);
